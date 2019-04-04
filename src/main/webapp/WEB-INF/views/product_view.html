@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+</head>
+<body>
+<p>
+    <a href="/home">Products list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<div style="display: flex">
+    <div>
+        <img th:src="${product.getProductImage()}" border=3 height=100 width=300>
+    </div>
+    <div>
+        <label>Product Name: </label>
+        <p th:text="${product.getProductName()}"></p><br>
+
+        <label>Product Price: </label>
+        <p th:text="${product.getProductPrice()}"></p><br>
+    </div>
+</div>
+<form>
+    <label>Product amount:</label>
+    <select name="amount">
+        <option value="0" selected>0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select><br>
+    <input type="submit" value="Add to cart">
+</form>
+<!--<form th:action="@{/products/cart}" th:object="${productView}" method="post">-->
+<!--<label>Product name: </label>-->
+<!--<input type="text" th:field="*{productName}" th:value="${product.productName}"><br>-->
+<!--<label>Product price: </label>-->
+<!--<input type="text" th:field="*{productPrice}" th:value="${product.productPrice}"><br>-->
+<!--<input hidden type="text" th:field="*{productImage}" th:value="${product.productImage}">-->
+<!--<input hidden type="text" th:field="*{id}" th:value="${product.id}">-->
+<!--<label>Product amount: </label>-->
+<!--<select th:field="*{amount}">-->
+<!--<option value="1">1</option>-->
+<!--<option value="2">2</option>-->
+<!--<option value="3">3</option>-->
+<!--</select><br>-->
+<!--<input type="submit" value="Add to cart" />-->
+<!--</form>-->
+</body>
+</html>
